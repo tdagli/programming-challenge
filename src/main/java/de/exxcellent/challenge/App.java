@@ -1,5 +1,6 @@
 package de.exxcellent.challenge;
 
+import de.exxcellent.challenge.type.FileConfiguration;
 import de.exxcellent.challenge.type.SupportedFileTypeEnum;
 import de.exxcellent.challenge.type.csv.DelimiterEnum;
 import de.exxcellent.challenge.util.CSVUtil;
@@ -25,15 +26,18 @@ public final class App {
      */
     public static void main(String... args) {
 
+        FileConfiguration weatherFileConfiguration = new FileConfiguration("weather.csv", DelimiterEnum.COMMA, SupportedFileTypeEnum.CSV);
+        FileConfiguration footballFileConfiguration = new FileConfiguration("football.csv", DelimiterEnum.COMMA, SupportedFileTypeEnum.CSV);
+
         try {
-            String dayWithSmallestTempSpread = WeatherUtil.getDayWithSmallestTempSpread("weather.csv", DelimiterEnum.COMMA, SupportedFileTypeEnum.CSV);
+            String dayWithSmallestTempSpread = WeatherUtil.getDayWithSmallestTempSpread(weatherFileConfiguration);
             System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         try {
-            String teamWithSmallestGoalSpread = FootballUtil.getTeamWithSmallestGoalSpread("football.csv", DelimiterEnum.COMMA, SupportedFileTypeEnum.CSV);
+            String teamWithSmallestGoalSpread = FootballUtil.getTeamWithSmallestGoalSpread(footballFileConfiguration);
             System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallestGoalSpread);
         } catch (IOException e) {
             e.printStackTrace();
