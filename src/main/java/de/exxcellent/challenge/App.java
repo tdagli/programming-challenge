@@ -16,6 +16,8 @@ import java.io.IOException;
  */
 public final class App {
 
+    public static String resourcesPath = "src/main/resources/de/exxcellent/challenge/";
+
     /**
      * This is the main entry method of your program.
      *

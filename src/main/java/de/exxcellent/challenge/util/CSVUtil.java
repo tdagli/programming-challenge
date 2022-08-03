@@ -1,5 +1,6 @@
 package de.exxcellent.challenge.util;
 
+import de.exxcellent.challenge.App;
 import de.exxcellent.challenge.type.csv.DelimiterEnum;
 import de.exxcellent.challenge.util.intf.FileReaderUtilInf;
 
@@ -10,7 +11,7 @@ public class CSVUtil implements FileReaderUtilInf {
 
     public void iterateOverFileWithoutHeaders(String fileName, DelimiterEnum delimiter, Consumer<String[]> callback) throws IOException {
         //https://www.baeldung.com/java-csv-file-array#buff-reader
-        FileReader reader = new FileReader("src/main/resources/de/exxcellent/challenge/" + fileName);
+        FileReader reader = new FileReader(App.resourcesPath + fileName);
         BufferedReader br = new BufferedReader(reader);
         String line;
         int index = 0;
